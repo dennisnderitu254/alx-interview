@@ -84,22 +84,30 @@ The pascal_triangle function you provided generates Pascal's triangle up to a gi
 
 -----------------------------------------------------------------
 
-The function starts by checking if n is less than or equal to 0. If it is, an empty list is returned because Pascal's triangle is not defined for non-positive values of n.
+The function starts by checking if n is less than or equal to 0.
+If it is, an empty list is returned because Pascal's triangle is not defined for non-positive values of n.
 
-If n is greater than 0, an initial row [1] is added to the triangle list. This represents the first row of Pascal's triangle, which always contains a single element, 1.
+If n is greater than 0, an initial row [1] is added to the triangle list.
+This represents the first row of Pascal's triangle, which always contains a single element, 1.
 
-Then, a loop runs from 1 to n-1 (excluding n). This loop generates each row of the triangle starting from the second row.
+Then, a loop runs from 1 to n-1 (excluding n).
+This loop generates each row of the triangle starting from the second row.
 
-Inside the loop, a new row list is initialized with the first element as 1. This represents the leftmost element of each row, which is always 1.
+Inside the loop, a new row list is initialized with the first element as 1.
+This represents the leftmost element of each row, which is always 1.
 
-Another loop runs from 1 to i-1 (excluding i), where i is the current row number. This loop calculates the values between the leftmost and rightmost elements of each row.
+Another loop runs from 1 to i-1 (excluding i), where i is the current row number.
+This loop calculates the values between the leftmost and rightmost elements of each row.
 
-Inside the nested loop, the value at position (i-1, j-1) and the value at position (i-1, j) in the previous row are added together and appended to the current row. This step computes the binomial coefficients.
+Inside the nested loop, the value at position (i-1, j-1) and the value
+at position (i-1, j) in the previous row are added together and appended to the current row.
+This step computes the binomial coefficients.
 
 After the nested loop, the rightmost element of each row, which is always 1, is appended to the row.
 
 Finally, the completed row is appended to the triangle list.
 
-After the outer loop completes, the function returns the triangle list, which represents Pascal's triangle up to n rows.
+After the outer loop completes, the function returns the triangle list,
+which represents Pascal's triangle up to n rows.
 
 ```
