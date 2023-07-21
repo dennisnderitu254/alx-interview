@@ -128,7 +128,8 @@ for i in range(10000):
 
 ```
 ----Explanation------
-The Above Code generates random log entries and writes them to the standard output (stdout). Each log entry is in the format of an Apache log line and consists of the following information:
+The Above Code generates random log entries and writes them to the standard output (stdout).
+Each log entry is in the format of an Apache log line and consists of the following information:
 
 - IP address (randomly generated four integers separated by periods)
 - Timestamp (current date and time)
@@ -138,13 +139,23 @@ The Above Code generates random log entries and writes them to the standard outp
 
 
 -----Random Log Generation -----
-The code uses a loop (for i in range(10000)) to generate 10,000 log entries. For each iteration, it uses the random module to generate random numbers for the IP address, status code, and file size.
+The code uses a loop (for i in range(10000)) to generate 10,000 log entries.
+ For each iteration, it uses the random module to generate random numbers for the IP address,
+ status code, and file size.
 
 -----Sleeping between Log Entries --------
-After generating each log entry, the code uses random.random() to obtain a random floating-point number between 0 and 1, which is then used as the argument to sleep() to introduce a random delay before generating the next log entry. This simulates random time intervals between log entries, which is often seen in real log data.
+After generating each log entry, the code uses random.random() to obtain a random
+floating-point number between 0 and 1, which is then used as the argument to sleep() to introduce
+a random delay before generating the next log entry.
+This simulates random time intervals between log entries,
+which is often seen in real log data.
 
 -----Writing Log Entries to stdout -----------
-Each log entry is constructed as a formatted string and written to the standard output using sys.stdout.write(). The sys.stdout.flush() call is not present here, but it would be helpful to flush the output buffer if log entries are not immediately displayed on the console.
+Each log entry is constructed as a formatted string and written to the
+standard output using sys.stdout.write().
+The sys.stdout.flush() call is not present here,
+but it would be helpful to flush the output buffer if log entries
+are not immediately displayed on the console.
 ```
 
 ```
@@ -187,28 +198,44 @@ if __name__ == '__main__':
 ```
 -----CODE EXPLANATION----
 
-Python script for parsing log entries from standard input (stdin) and calculating statistics based on the HTTP status codes and the accumulated file size, just like the previous version.
+Python script for parsing log entries from standard input (stdin) and calculating
+statistics based on the HTTP status codes and the accumulated file size, just like the previous version.
 
-However, it lacks the log entry generation part that we had in the previous discussion. Instead, this version expects you to provide log entries manually, line by line, via the terminal.
+However, it lacks the log entry generation part that we had in the previous discussion.
+Instead, this version expects you to provide log entries manually,
+line by line, via the terminal.
 
 -------- Initialization ---------------
-The script initializes variables filesize and count to 0. It also creates a list codes containing various HTTP status codes (strings), and a dictionary stats with initial counts set to 0 for each status code.
+The script initializes variables filesize and count to 0.
+It also creates a list codes containing various HTTP status codes (strings),
+and a dictionary stats with initial counts set to 0 for each status code.
 
 ---------Printing Statistics----------------
-The script defines a function print_stats to print the calculated statistics. It takes two parameters: stats (the dictionary with status code counts) and file_size (the accumulated file size). The function prints the total file size and the count for each HTTP status code present in the log entries. It only prints status codes with non-zero counts.
+The script defines a function print_stats to print the calculated statistics.
+It takes two parameters: stats (the dictionary with status code counts) and file_size (the accumulated file size).
+The function prints the total file size and the count for each HTTP status code present in the log entries.
+It only prints status codes with non-zero counts.
 
 ----------Parsing Log Entries-----------------
-The script reads log entries line by line from standard input (stdin) using a for loop. For each log entry, it increments the count variable, splits the line into individual parts (using split()), and tries to extract the status code and file size. If the status code is one of the codes in the codes list, it updates the count for that status code in the stats dictionary.
+The script reads log entries line by line from standard input (stdin) using a for loop.
+For each log entry, it increments the count variable,
+splits the line into individual parts (using split()),
+and tries to extract the status code and file size.
+If the status code is one of the codes in the codes list,
+it updates the count for that status code in the stats dictionary.
 
 ----------Accumulating File Size -----------------
-The script also tries to extract the file size from each log entry and accumulates it in the filesize variable.
+The script also tries to extract the file size from each log entry
+and accumulates it in the filesize variable.
 
 -----------Printing Statistics Periodically----------------
-The script checks if count % 10 == 0, which means every 10 log entries processed, it prints the current statistics up to that point using the print_stats function.
+The script checks if count % 10 == 0, which means every 10 log entries processed,
+it prints the current statistics up to that point using the print_stats function.
 
 -------------Printing Final Statistics-------------------
 After processing all the log entries, the script prints the final statistics using the print_stats function.
 
 --------------KeyboardInterrupt Handling ------------------
-The script catches a KeyboardInterrupt (e.g., when the user presses Ctrl+C) and prints the statistics up to that point before raising the KeyboardInterrupt again to terminate the script.
+The script catches a KeyboardInterrupt (e.g., when the user presses Ctrl+C)
+and prints the statistics up to that point before raising the KeyboardInterrupt again to terminate the script.
 ```
