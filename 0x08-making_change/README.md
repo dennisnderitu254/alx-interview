@@ -1,7 +1,7 @@
 0x08. Making Change
 ===================
 
-AlgorithmPython
+`Algorithm` `Python`
 
 -   By: Dev Nderitu
 
@@ -60,3 +60,11 @@ carrie@ubuntu:~/0x08-making_change$ ./0-main.py
 carrie@ubuntu:~/0x08-making_change$
 
 ```
+
+**-------------CODE IMPLEMENTATION ---------------**
+
+1. You initialize the `dp` array with the first element as 0 and the rest as infinity (`float("inf")`).
+
+2. You iterate through each coin value and update the `dp` array accordingly to find the minimum number of coins needed for each possible total.
+
+3. Finally, you return `dp[-1]` (last element of the `dp` array), which represents the minimum number of coins needed to meet the total. If it's still infinity, you return -1 to indicate that the total cannot be achieved with the given coins.
